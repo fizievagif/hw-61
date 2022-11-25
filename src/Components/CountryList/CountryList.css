@@ -1,17 +1,8 @@
-.country-list-block {
-    margin-top: 20px;
-    margin-right: 20px;
-    padding: 10px;
-    max-height: 885px;
-    overflow-y: auto;
-    box-shadow: 0 0 8px 0 rgba(34, 60, 80, 0.6);
-}
-
-p {
+.country {
     text-decoration: underline;
 }
 
-p:hover {
+.country:hover {
     color: orange;
     cursor: pointer;
 }

@@ -1,33 +1,13 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {CountryApiType} from "../../types";
+import React from 'react';
 import './CountryList.css';
-import axios from "axios";
 
-const COUNTRIES = 'https://restcountries.com/v2/all?fields=alpha3Code,name';
+interface Props {
+  name: string;
+  onClick: React.MouseEventHandler;
+}
 
-const CountryList = () => {
-  const [countries, setCountries] = useState<CountryApiType[]>([]);
-
-  const fetchData = useCallback(async () => {
-    const countriesResponse = await axios.get<CountryApiType[]>(COUNTRIES);
-    setCountries(countriesResponse.data)
-  }, []);
-
-  useEffect(() =>{
-    fetchData().catch(console.error);
-  }, [fetchData]);
-
-  const countryChoose = countries.map(item => (
-    <p
-      key={item.alpha3Code}
-    >{item.name}</p>
-  ))
-
-  return (
-    <div className="country-list-block">
-      {countryChoose}
-    </div>
-  );
+const CountryList: React.FC<Props> = ({name, onClick}) => {
+  return <p className="country" onClick={onClick}>{name}</p>;
 };
 
 export default CountryList;
