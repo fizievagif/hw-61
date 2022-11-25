@@ -6,7 +6,8 @@ import CountryList from "../Components/CountryList/CountryList";
 function App() {
   return (
     <div className="App">
-      <CountryList/>
+      <CountryList
+      />
       <CountryInfo/>
     </div>
   );
